@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAND&amp;BLOCK</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="game">
+
+  <!-- Login screen -->
+  <div id="loginScreen" class="overlay active">
+    <div class="login-box pixel-panel">
+      <h1 class="logo">LAND<span>&amp;</span>BLOCK</h1>
+      <p class="tagline">Build. Farm. Trade. Collect.</p>
+      <input id="loginUser" class="pixel-input" type="text" placeholder="Username" autocomplete="off">
+      <input id="loginPass" class="pixel-input" type="password" placeholder="Password">
+      <div id="loginError" class="login-error"></div>
+      <button id="loginBtn" class="pixel-btn primary">PLAY</button>
+      <p class="hint">New? Just pick a username &amp; password — your land is created automatically.</p>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="topBar">
+      <div class="stat potato"><span class="ico">🥔</span><span id="potatoCount">0</span></div>
+      <div class="stat money"><span class="ico">🪙</span><span id="moneyCount">0</span></div>
+      <div class="stat level">Lv <span id="levelCount">1</span></div>
+      <div id="xpBar"><div id="xpFill"></div></div>
+      <div id="profileBtn" class="icon-btn" title="Profile">👤</div>
+      <button id="leaderboardBtn" class="pixel-btn mini">Rankings</button>
+    </div>
+
+    <div id="sideBtns">
+      <button class="side-btn" data-panel="shop" title="Shop">🛒</button>
+      <button class="side-btn" data-panel="pets" title="Pets">🐾</button>
+      <button class="side-btn" data-panel="gear" title="Gear">🛡️</button>
+      <button class="side-btn" data-panel="land" title="Land">🌍</button>
+      <button class="side-btn" data-panel="settings" title="Settings">⚙️</button>
+      <button class="side-btn" data-panel="visit" title="Visit Lands">🗺️</button>
+      <button class="side-btn" data-panel="trades" title="Trades">🔄</button>
+    </div>
+
+    <div id="bottomBar">
+      <div id="hotbar"></div>
+      <button id="invBtn" class="pixel-btn">Inventory</button>
+      <button id="chatBtn" class="icon-btn" title="Chat">💬</button>
+    </div>
+
+    <div id="chatBox" class="hidden">
+      <div id="chatLog"></div>
+      <input id="chatInput" class="pixel-input" placeholder="Type to chat...">
+    </div>
+  </div>
+
+  <!-- Tooltip for machine/block info -->
+  <div id="tooltip" class="hidden"></div>
+
+  <!-- Panels -->
+  <div id="panelContainer"></div>
+
+  <!-- Trade window -->
+  <div id="tradeWindow" class="hidden overlay-center">
+    <div class="pixel-panel trade-panel">
+      <h2>Trading</h2>
+      <div id="tradeState"></div>
+      <div class="trade-sides">
+        <div class="trade-side" id="tradeSideA"></div>
+        <div class="trade-side" id="tradeSideB"></div>
+      </div>
+      <div class="trade-controls">
+        <button id="tradeLockBtn" class="pixel-btn">Lock Trade</button>
+        <button id="tradeUnlockBtn" class="pixel-btn">Unlock</button>
+        <button id="tradeConfirmBtn" class="pixel-btn primary">Confirm</button>
+        <button id="tradeCancelBtn" class="pixel-btn danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monster interaction -->
+  <div id="monsterPopup" class="hidden overlay-center">
+    <div class="pixel-panel">
+      <h2 id="monsterName"></h2>
+      <p>Friendship: <span id="monsterFriend"></span></p>
+      <div id="monsterActions"></div>
+      <button id="monsterClose" class="pixel-btn">Close</button>
+    </div>
+  </div>
+
+  <div id="toastContainer"></div>
+
+  <!-- Machine UI -->
+  <div id="machineWindow" class="hidden overlay-center">
+    <div class="pixel-panel machine-panel">
+      <h2 id="machineTitle"></h2>
+      <div id="machineBody"></div>
+      <button id="machineClose" class="pixel-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+<script src="js/world.js"></script>
+<script src="js/render.js"></script>
+<script src="js/inventory.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/net.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

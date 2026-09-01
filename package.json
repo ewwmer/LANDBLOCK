@@ -1,0 +1,15 @@
+{
+  "name": "landblock",
+  "version": "1.0.0",
+  "description": "LANDBLOCK - 2D Multiplayer Pixel Sandbox Farming Game",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "uuid": "^9.0.0"
+  }
+}
